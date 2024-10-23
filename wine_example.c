@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 float wine_concentration_equation(float c1, float dT, float k);
+float wine_concentration_recursive(float c_start, float days, float k);
 
 int main()
 {
@@ -15,7 +16,12 @@ int main()
         concentration = wine_concentration_equation(concentration, 1, k);
     }
 
-    printf("Concentration after %d steps: %f\n", days, concentration);
+    printf("Iterative: Concentration after %d steps: %f\n", days, concentration);
+
+    concentration = 1;
+    concentration = wine_concentration_recursive(concentration, days, k);
+
+    printf("Recursive: Concentration after %d steps: %f\n", days, concentration);
 
     return 0;
 }
@@ -23,4 +29,16 @@ int main()
 float wine_concentration_equation(float c_start, float delta_time, float k)
 {
     return c_start - delta_time * k * c_start;
+}
+
+float wine_concentration_recursive(float c_start, float days, float k)
+{
+    float concentration = wine_concentration_equation(c_start, 1, k);
+
+    if (days > 1)
+    {
+        return wine_concentration_recursive(concentration, days - 1, k);
+    }
+
+    return concentration;
 }
