@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// cc wine_example.c -o out/wine_example && ./out/wine_example
+
 float wine_concentration_equation(float c1, float dT, float k);
 float wine_concentration_recursive(float c_start, float days, float k);
 
