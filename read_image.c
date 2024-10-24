@@ -2,13 +2,10 @@
 #include <stdlib.h>
 #include <png.h>
 
-// cc read_image.c -o out/read_image && ./out/read_image
+// cc read_image.c -o out/read_image -lpng && ./out/read_image
 
 int main()
 {
-    // int width = 256;
-    // int height = 256;
-
     FILE *fp = fopen("8-bit-256-x-256-Grayscale-Lena-Image.png", "r");
 
     if (!fp)
