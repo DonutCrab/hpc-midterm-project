@@ -8,7 +8,7 @@ int main()
     float steel_beam[10] = {75, 0, 0, 0, 0, 0, 0, 0, 0, 50};
 
     // conductivity
-    float k = 0.5;
+    float k = 0.2;
 
     int steps = 10;
 
@@ -21,7 +21,7 @@ int main()
         // ignore constant boundaries
         for (int i = 1; i < 9; i++)
         {
-            float new_value = k * (cache + steel_beam[i + 1]) - (1 - k * 2) * steel_beam[i];
+            float new_value = (k * cache + 2 * (1 - k) * steel_beam[i] + k * steel_beam[i + 1]) / 2;
 
             // store current value to not influence the next step
             cache = steel_beam[i];
