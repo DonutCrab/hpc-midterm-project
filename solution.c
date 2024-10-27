@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <png.h> // libpng
 
+// libpng has to be installed and linked
+// use clang or gcc
+
 // cc solution.c -o out/solution -lpng && ./out/solution
 
 void copy_row(float *from, float *to, int width);
